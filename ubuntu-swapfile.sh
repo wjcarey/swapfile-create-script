@@ -12,7 +12,7 @@ if [ "$SWAP_CONFIRM" != "${SWAP_CONFIRM#[Yy]}" ] ;then
     echo "/swapfile swap swap defaults 0 0" >> /etc/fstab
     echo "Success: swapfile created ..."
 else
-    echo "Error: swapfile skipped by user ..."
+    echo "Notice: swapfile skipped by user ..."
 fi
 
 rm -- "$0"
