@@ -12,10 +12,10 @@ if [ "$SWAP_CONFIRM" != "${SWAP_CONFIRM#[Yy]}" ] ;then
     echo "updating /etc/fstab file to run swap file on system startup ..."
     echo "# linux swapfile use sudo free -h to view available space" >> /etc/fstab
     echo "/swapfile swap swap defaults 0 0" >> /etc/fstab
-    echo "Success: swapfile created ..."
+    echo "success: swapfile created ..."
     
 else
-    echo "Notice: swapfile skipped by user ..."
+    echo "notice: swapfile skipped by user ..."
 fi
 
 rm -- "$0"
