@@ -5,12 +5,12 @@ echo "starting swapfile install script ..."
 
 #VARIABLES
 echo "gathering arguments from commandline ..."
-if [ -z "$1"]
+if [ -z "$1" ]
     then
         echo "would you like to create a 2G swapfile? [Y/n]"
         read SWAP_CONFIRM
     else
-    SWAP_CONFIRM = $1
+    SWAP_CONFIRM="${1}"
 fi
 
 #CREATE SWAPFILE LOGIC
