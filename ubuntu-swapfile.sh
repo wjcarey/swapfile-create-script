@@ -2,8 +2,18 @@
 
 #SWAPFILE
 echo "starting swapfile install script ..."
-echo "would you like to create a 2G swapfile? [Y/n]"
-read SWAP_CONFIRM
+
+#VARIABLES
+echo "gathering arguments from commandline ..."
+if [ -z "$1"]
+    then
+        echo "would you like to create a 2G swapfile? [Y/n]"
+        read SWAP_CONFIRM
+    else
+    SWAP_CONFIRM = $1
+fi
+
+#CREATE SWAPFILE LOGIC
 if [ "$SWAP_CONFIRM" != "${SWAP_CONFIRM#[Yy]}" ] ;then
     fallocate -l 2G /swapfile
     chmod 600 /swapfile
@@ -13,10 +23,10 @@ if [ "$SWAP_CONFIRM" != "${SWAP_CONFIRM#[Yy]}" ] ;then
     echo "# linux swapfile use sudo free -h to view available space" >> /etc/fstab
     echo "/swapfile swap swap defaults 0 0" >> /etc/fstab
     echo "success: swapfile created ..."
-    
 else
     echo "notice: swapfile skipped by user ..."
 fi
 
+#DELETE SELF AND EXIT
 rm -- "$0"
 exit
