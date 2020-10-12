@@ -7,7 +7,7 @@ echo "starting swapfile install script ..."
 echo "gathering arguments from commandline ..."
 if [ -z "$1" ]
     then
-        echo "would you like to create a 2G swapfile? [Y/n]"
+        echo -e "\e[32mwould you like to create a 2G swapfile? [Y/n]"
         read SWAP_CONFIRM
     else
     SWAP_CONFIRM="${1}"
