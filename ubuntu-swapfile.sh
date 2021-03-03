@@ -7,7 +7,7 @@ echo "starting swapfile install script ..."
 echo "gathering arguments from commandline ..."
 if [ -z "$1" ]
     then
-        echo -e "\e[32mwould you like to create a 2G swapfile? [Y/n]"
+        echo -e "\e[32mwould you like to create a 4G swapfile? [Y/n]"
         read SWAP_CONFIRM
     else
     SWAP_CONFIRM="${1}"
@@ -15,7 +15,7 @@ fi
 
 #CREATE SWAPFILE LOGIC
 if [ "$SWAP_CONFIRM" != "${SWAP_CONFIRM#[Yy]}" ] ;then
-    fallocate -l 2G /swapfile
+    fallocate -l 4G /swapfile
     chmod 600 /swapfile
     mkswap /swapfile
     swapon /swapfile
